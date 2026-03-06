@@ -7,6 +7,7 @@ import { Attribute } from '../databinding/attribute/attribute';
 import { Class } from '../databinding/class/class';
 import { Style } from '../databinding/style/style';
 import { Interpolation } from '../databinding/interpolation/interpolation';
+import { ProductsComponent } from './models/products/products';
 
 export const routes: Routes = [
     { path: 'home', component: Home },
@@ -15,6 +16,7 @@ export const routes: Routes = [
     { path: 'event', component: EventBinding },
     { path: 'two-way', component: TwoWay },
     { path: 'attribute', component: Attribute },
+    { path: 'products', component: ProductsComponent },
     { path: 'class', component: Class },
     { path: 'style', component: Style },
     { path: '', redirectTo: 'home', pathMatch: 'full' },
