@@ -1,0 +1,63 @@
+<div class="container mt-4">
+    <div class="row">
+      @for (product of products; track product.id) {
+      <div class="col-md-4 mb-4">
+        <div class="card mb-3">
+          <h3 class="card-header">{{ product.category }}</h3> <div class="card-body">
+            <h5 class="card-title">{{ product.name }}</h5>
+            <h6 class="card-subtitle text-muted">ID: {{ product.id }}</h6>
+          </div>
+          
+          <svg xmlns="http://www.w3.org/2000/svg" class="d-block user-select-none" width="100%" height="200" aria-label="Placeholder: Image cap" focusable="false" role="img" preserveAspectRatio="xMidYMid slice" viewBox="0 0 318 180" style="font-size:1.125rem;text-anchor:middle">
+            <rect width="100%" height="100%" fill="#868e96"></rect>
+            <text x="50%" y="50%" fill="#dee2e6" dy=".3em">{{ product.name }}</text>
+          </svg>
+  
+          <div class="card-body">
+            <p class="card-text">{{ product.description }}</p>
+          </div>
+  
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item"><strong>Price:</strong> ${{ product.price }}</li>
+            <li class="list-group-item"><strong>Status:</strong> {{ product.status }}</li>
+            <li class="list-group-item"><strong>Stock:</strong> {{ product.stock }} units</li>
+          </ul>
+  
+          <div class="card-body">
+            <button class="btn btn-primary"
+                [routerLink]="['product-list', product.id, 'details']" 
+                (onclick)="getProduct(product)">
+            View Details
+            </button>
+          </div>
+  
+          <div class="card-footer text-muted">
+            Warranty: {{ product.warranty }}
+          </div>
+        </div>
+      </div>
+      }
+    </div>
+  </div>
+<!--   
+  @if (showModal && selectedProduct) {
+    <div class="modal-overlay" (click)="closeModal()">
+      <div class="modal-content" (click)="$event.stopPropagation()">
+        <h3>{{ selectedProduct.name }} Full Details</h3>
+        <hr>
+        <div class="details-grid">
+          <p><strong>Product ID:</strong> {{ selectedProduct.id }}</p>
+          <p><strong>Category:</strong> {{ selectedProduct.category }}</p>
+          <p><strong>Price:</strong> ${{ selectedProduct.price }}</p>
+          <p><strong>Stock:</strong> {{ selectedProduct.stock }}</p>
+          <p><strong>Status:</strong> {{ selectedProduct.status }}</p>
+          <p><strong>Manufacturer:</strong> {{ selectedProduct.manufacturer }}</p>
+          <p><strong>Warranty:</strong> {{ selectedProduct.warranty }}</p>
+          <p><strong>Rating:</strong> {{ selectedProduct.rating }}/5</p>
+          <p><strong>Description:</strong> {{ selectedProduct.description }}</p>
+        </div>
+        <hr>
+        <button class="btn btn-secondary" (click)="closeModal()">Close</button>
+      </div>
+    </div>
+  } -->
